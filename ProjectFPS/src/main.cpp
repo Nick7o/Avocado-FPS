@@ -78,7 +78,7 @@ void Initialize()
 
 int main()
 {
-	mainWindow = new OpenGLWindow(2560, 1440);
+	mainWindow = new OpenGLWindow(1600, 900);
 	mainWindow->Initialize();
 
 	Initialize();
