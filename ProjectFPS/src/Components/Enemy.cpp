@@ -17,21 +17,21 @@ void Enemy::Start()
 void Enemy::Update(float deltaTime)
 {
 	auto t = GetGameObject()->GetTransform();
-	if (t->Position.y > 200.0f)
+	if (t->position.y > 200.0f)
 		return;
 
-	t->Rotation += glm::vec3{0.00f, 0.01f, 0.0f};
+	t->rotation += glm::vec3{0.00f, 0.01f, 0.0f};
 
-	collider->SetPosition(t->Position + glm::vec3(0, height * 0.5f, 0));
-	collider->SetRotation(t->Rotation);
+	collider->SetPosition(t->position + glm::vec3(0, height * 0.5f, 0));
+	collider->SetRotation(t->rotation);
 
 	if (!IsDead())
 		velocity += gravity * deltaTime;
 	else
 	{
 		velocity -= gravity * deltaTime;
-		if (t->Scale.y > 0.1f)
-			t->Scale.y -= 2.0f * deltaTime;
+		if (t->scale.y > 0.1f)
+			t->scale.y -= 2.0f * deltaTime;
 	}
 
 	HandlePhysics(deltaTime);

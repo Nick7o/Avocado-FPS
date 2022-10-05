@@ -10,58 +10,58 @@ public:
 	typedef unsigned int HandlerIdType;
 
 	EventHandler(const EventHandler& source)
-		: m_HandlerFunction(source.m_HandlerFunction), m_HandlerId(source.m_HandlerId)
+		: handlerFunction(source.handlerFunction), handlerId(source.handlerId)
 	{
 	}
 
 	EventHandler(const EventHandler&& source)
-		: m_HandlerFunction(std::move(source.m_HandlerFunction), m_HandlerId(source.m_HandlerId))
+		: handlerFunction(std::move(source.handlerFunction), handlerId(source.handlerId))
 	{
 	}
 
 	explicit EventHandler(const HandlerFunctionType& handlerFunction)
-		: m_HandlerFunction(handlerFunction)
+		: handlerFunction(handlerFunction)
 	{
-		m_HandlerId = ++m_HandlerIdCounter;
+		handlerId = ++handlerIdCounter;
 	}
 
 	bool operator==(const EventHandler& other) const
 	{
-		return m_HandlerId == other.m_HandlerId;
+		return handlerId == other.handlerId;
 	}
 
 	void operator()(Args... parameters) const
 	{
-		if (m_HandlerFunction != nullptr)
-			m_HandlerFunction(parameters...);
+		if (handlerFunction != nullptr)
+			handlerFunction(parameters...);
 	}
 
 	EventHandler& operator=(const EventHandler& other)
 	{
-		m_HandlerFunction = other.m_HandlerFunction;
-		m_HandlerId = other.m_HandlerId;
+		handlerFunction = other.handlerFunction;
+		handlerId = other.handlerId;
 
 		return *this;
 	}
 
 	EventHandler& operator=(EventHandler&& other)
 	{
-		std::swap(m_HandlerFunction, other.m_HandlerFunction);
-		m_HandlerId = other.m_HandlerId;
+		std::swap(handlerFunction, other.handlerFunction);
+		handlerId = other.handlerId;
 
 		return *this;
 	}
 
-	HandlerIdType GetId() const { return m_HandlerId; }
+	HandlerIdType GetId() const { return handlerId; }
 
 private:
-	HandlerFunctionType m_HandlerFunction;
-	HandlerIdType m_HandlerId;
-	static std::atomic_uint m_HandlerIdCounter;
+	HandlerFunctionType handlerFunction;
+	HandlerIdType handlerId;
+	static std::atomic_uint handlerIdCounter;
 };
 
 template <typename... Args>
-std::atomic_uint EventHandler<Args...>::m_HandlerIdCounter(0);
+std::atomic_uint EventHandler<Args...>::handlerIdCounter(0);
 
 template<typename... Args>
 class Event
@@ -73,22 +73,22 @@ public:
 
 	Event(const Event& source)
 	{
-		std::lock_guard<std::mutex> lock(m_HandlersLocker);
-		m_Handlers = source.m_Handlers;
+		std::lock_guard<std::mutex> lock(handlersLocker);
+		handlers = source.handlers;
 	}
 
 	Event(Event&& source)
 	{
-		std::lock_guard<std::mutex> lock(m_HandlersLocker);
-		m_Handlers = std::move(source.m_Handlers);
+		std::lock_guard<std::mutex> lock(handlersLocker);
+		handlers = std::move(source.handlers);
 	}
 
 	// Adding handlers
 	typename HandlerType::HandlerIdType Add(const HandlerType& handler)
 	{
-		std::lock_guard<std::mutex> lock(m_HandlersLocker);
+		std::lock_guard<std::mutex> lock(handlersLocker);
 
-		m_Handlers.push_back(handler);
+		handlers.push_back(handler);
 		return handler.GetId();
 	}
 
@@ -100,12 +100,12 @@ public:
 	// Removing handlers
 	bool Remove(const HandlerType& handler)
 	{
-		std::lock_guard<std::mutex> lock(m_HandlersLocker);
+		std::lock_guard<std::mutex> lock(handlersLocker);
 
-		auto it = std::find(m_Handlers.begin(), m_Handlers.end(), handler);
-		if (it != m_Handlers.end())
+		auto it = std::find(handlers.begin(), handlers.end(), handler);
+		if (it != handlers.end())
 		{
-			m_Handlers.erase(it);
+			handlers.erase(it);
 			return true;
 		}
 
@@ -114,13 +114,13 @@ public:
 
 	bool Remove(const typename HandlerType::HandlerIdType& handlerId)
 	{
-		std::lock_guard<std::mutex> lock(m_HandlersLocker);
+		std::lock_guard<std::mutex> lock(handlersLocker);
 
-		auto it = std::find_if(m_Handlers.begin(), m_Handlers.end(),
+		auto it = std::find_if(handlers.begin(), handlers.end(),
 			[handlerId](const HandlerType& handler) -> auto { handler.GetId() == handlerId; });
-		if (it != m_Handlers.end())
+		if (it != handlers.end())
 		{
-			m_Handlers.erase(it);
+			handlers.erase(it);
 			return true;
 		}
 
@@ -139,19 +139,19 @@ public:
 
 	Event& operator=(const Event& other)
 	{
-		std::lock_guard<std::mutex> lock(m_HandlersLocker);
-		std::lock_guard<std::mutex> lock2(other.m_HandlersLocker);
+		std::lock_guard<std::mutex> lock(handlersLocker);
+		std::lock_guard<std::mutex> lock2(other.handlersLocker);
 
-		m_Handlers = other.m_Handlers;
+		handlers = other.handlers;
 		return *this;
 	}
 
 	Event& operator=(const Event&& other)
 	{
-		std::lock_guard<std::mutex> lock(m_HandlersLocker);
-		std::lock_guard<std::mutex> lock2(other.m_HandlersLocker);
+		std::lock_guard<std::mutex> lock(handlersLocker);
+		std::lock_guard<std::mutex> lock2(other.handlersLocker);
 
-		std::swap(m_Handlers, other.m_Handlers);
+		std::swap(handlers, other.handlers);
 		return *this;
 	}
 
@@ -167,11 +167,11 @@ protected:
 
 	HandlerCollectionType GetHandlersCopy() const
 	{
-		std::lock_guard<std::mutex> lock(m_HandlersLocker);
-		return m_Handlers;
+		std::lock_guard<std::mutex> lock(handlersLocker);
+		return handlers;
 	}
 
 private:
-	HandlerCollectionType m_Handlers;
-	mutable std::mutex m_HandlersLocker;
+	HandlerCollectionType handlers;
+	mutable std::mutex handlersLocker;
 };

@@ -18,7 +18,7 @@ void Puppet::Start()
 void Puppet::HandlePhysics(float deltaTime)
 {
 	auto transform = GetGameObject()->GetTransform();
-	auto pos = transform->Position;
+	auto pos = transform->position;
 	posChange = velocity * deltaTime;
 	auto newPos = pos + posChange;
 	auto velDir = glm::normalize(velocity);
@@ -90,7 +90,7 @@ void Puppet::HandlePhysics(float deltaTime)
 	if (posChange.y > 0.01f)
 		isGrounded = false;
 
-	transform->Position = newPos;
+	transform->position = newPos;
 }
 
 void Puppet::TakeDamage(float damage)

@@ -34,7 +34,7 @@ void LevelDescription::Load()
 	bMat->SetTexture("maskMap", bMask);
 
 	auto barrelRenderer = LoadAndCreate("resources/Models/barrel_03_1k/barrel_03_1k.fbx");
-	barrelRenderer->GetGameObject()->GetTransform()->Position = { 0.5f, .4f, 0.0f };
+	barrelRenderer->GetGameObject()->GetTransform()->position = { 0.5f, .4f, 0.0f };
 	barrelRenderer->materials.push_back(bMat);
 
 	LoadLevel();
@@ -57,8 +57,8 @@ void LevelDescription::LoadLevel()
 {
 	std::string basePath = "resources/Models/Level0/";
 	auto lvl0Renderer = LoadAndCreate(basePath + "level-3.fbx");
-	lvl0Renderer->GetGameObject()->GetTransform()->Rotation = { glm::radians(-90.0f), 0.0f, 0.0f};
-	lvl0Renderer->GetGameObject()->GetTransform()->Scale = { 2.0f, 2.0f, 2.0f };
+	lvl0Renderer->GetGameObject()->GetTransform()->rotation = { glm::radians(-90.0f), 0.0f, 0.0f};
+	lvl0Renderer->GetGameObject()->GetTransform()->scale = { 2.0f, 2.0f, 2.0f };
 
 	// Wall 0
 	auto wall0Diff = std::make_shared<Texture>(basePath + "sciana-normal/3_col.png");
@@ -138,13 +138,13 @@ void LevelDescription::CreateLights()
 	auto sunLight = sunGO->AddComponent(new Light());
 	sunLight->intensity = 1.0f;
 	sunLight->color = { 1.0f, 0.97f, 0.9f };
-	sunGO->GetTransform()->Position = { 0, 5, 0 };
-	sunGO->GetTransform()->Rotation = { glm::radians(-45.0f), glm::radians(-10.0f), 0 };
+	sunGO->GetTransform()->position = { 0, 5, 0 };
+	sunGO->GetTransform()->rotation = { glm::radians(-45.0f), glm::radians(-10.0f), 0 };
 
 	{
 		auto lightGO = new GameObject();
-		lightGO->GetTransform()->Position = { -8.0f, 5.0f, 2.4f };
-		lightGO->GetTransform()->Rotation = { glm::radians(-90.0f), 0, 0 };
+		lightGO->GetTransform()->position = { -8.0f, 5.0f, 2.4f };
+		lightGO->GetTransform()->rotation = { glm::radians(-90.0f), 0, 0 };
 		auto light = lightGO->AddComponent(new Light());
 		light->color = { 1.0f, 0.5f, 0.01f };
 		light->type = LightType::Spot;
@@ -153,8 +153,8 @@ void LevelDescription::CreateLights()
 
 	{
 		auto lightGO = new GameObject();
-		lightGO->GetTransform()->Position = { -8.0f, 5.0f, 11.0f };
-		lightGO->GetTransform()->Rotation = { glm::radians(-90.0f), 0, 0 };
+		lightGO->GetTransform()->position = { -8.0f, 5.0f, 11.0f };
+		lightGO->GetTransform()->rotation = { glm::radians(-90.0f), 0, 0 };
 		auto light = lightGO->AddComponent(new Light());
 		light->color = { 1.0f, 0.15f, 0.01f };
 		light->type = LightType::Spot;
@@ -163,8 +163,8 @@ void LevelDescription::CreateLights()
 
 	{
 		auto lightGO = new GameObject();
-		lightGO->GetTransform()->Position = { 8.0f, 0.2f, 14.0f };
-		lightGO->GetTransform()->Rotation = { glm::radians(-90.0f), 0, 0 };
+		lightGO->GetTransform()->position = { 8.0f, 0.2f, 14.0f };
+		lightGO->GetTransform()->rotation = { glm::radians(-90.0f), 0, 0 };
 		auto light = lightGO->AddComponent(new Light());
 		light->color = { 0.05f, 0.15f, 1.0f };
 		light->type = LightType::Point;
@@ -173,8 +173,8 @@ void LevelDescription::CreateLights()
 
 	{
 		auto lightGO = new GameObject();
-		lightGO->GetTransform()->Position = { 23.0f, 3.2f, 16.0f };
-		lightGO->GetTransform()->Rotation = { glm::radians(-90.0f), 0, 0 };
+		lightGO->GetTransform()->position = { 23.0f, 3.2f, 16.0f };
+		lightGO->GetTransform()->rotation = { glm::radians(-90.0f), 0, 0 };
 		auto light = lightGO->AddComponent(new Light());
 		light->color = { 1.00f, 0.5f, 0.05f };
 		light->type = LightType::Point;
@@ -183,8 +183,8 @@ void LevelDescription::CreateLights()
 
 	{
 		auto lightGO = new GameObject();
-		lightGO->GetTransform()->Position = { 24.0f, 8.2f, 5.0f };
-		lightGO->GetTransform()->Rotation = { glm::radians(-90.0f), 0, 0 };
+		lightGO->GetTransform()->position = { 24.0f, 8.2f, 5.0f };
+		lightGO->GetTransform()->rotation = { glm::radians(-90.0f), 0, 0 };
 		auto light = lightGO->AddComponent(new Light());
 		light->color = { 1.00f, 0.5f, 0.05f };
 		light->type = LightType::Point;
@@ -193,8 +193,8 @@ void LevelDescription::CreateLights()
 
 	{
 		auto lightGO = new GameObject();
-		lightGO->GetTransform()->Position = { 30.0f, 8.2f, -4.0f };
-		lightGO->GetTransform()->Rotation = { glm::radians(-90.0f), 0, 0 };
+		lightGO->GetTransform()->position = { 30.0f, 8.2f, -4.0f };
+		lightGO->GetTransform()->rotation = { glm::radians(-90.0f), 0, 0 };
 		auto light = lightGO->AddComponent(new Light());
 		light->color = { 1.00f, 0.5f, 0.05f };
 		light->type = LightType::Point;
@@ -203,8 +203,8 @@ void LevelDescription::CreateLights()
 
 	{
 		auto lightGO = new GameObject();
-		lightGO->GetTransform()->Position = { 50.0f, 3.2f, 10.0f };
-		lightGO->GetTransform()->Rotation = { glm::radians(-90.0f), 0, 0 };
+		lightGO->GetTransform()->position = { 50.0f, 3.2f, 10.0f };
+		lightGO->GetTransform()->rotation = { glm::radians(-90.0f), 0, 0 };
 		auto light = lightGO->AddComponent(new Light());
 		light->color = { 1.00f, 0.5f, 0.05f };
 		light->type = LightType::Point;
@@ -241,14 +241,14 @@ void LevelDescription::CreatePlayer()
 	weaponRenderer->materials.push_back(wMat);
 	weaponRenderer->materials.push_back(wMat);
 	weaponRenderer->materials.push_back(wMat);
-	weaponRenderer->GetGameObject()->GetTransform()->Position = { 0.0f, 1.0f, 0.0f };
-	weaponRenderer->GetGameObject()->GetTransform()->Rotation = { 0.0f, glm::radians(90.0f), glm::radians(90.0f) };
-	weaponRenderer->GetGameObject()->GetTransform()->Scale = {0.01f, 0.01f, 0.01f};
+	weaponRenderer->GetGameObject()->GetTransform()->position = { 0.0f, 1.0f, 0.0f };
+	weaponRenderer->GetGameObject()->GetTransform()->rotation = { 0.0f, glm::radians(90.0f), glm::radians(90.0f) };
+	weaponRenderer->GetGameObject()->GetTransform()->scale = {0.01f, 0.01f, 0.01f};
 
 	// Player
 	auto playerGO = new GameObject();
 	auto player = playerGO->AddComponent(new Player());
-	playerGO->GetTransform()->Position += glm::vec3(0, 1, 0);
+	playerGO->GetTransform()->position += glm::vec3(0, 1, 0);
 
 	player->weapon = weaponRenderer->GetGameObject();
 }
@@ -257,9 +257,9 @@ Enemy* LevelDescription::CreateEnemy(glm::vec3 pos)
 {
 	std::string basePath = "resources/Models/food_avocado_01_2k/";
 	auto enemyRenderer = LoadAndCreate(basePath + "food_avocado_01_2k.fbx");
-	enemyRenderer->GetGameObject()->GetTransform()->Position = pos;
-	enemyRenderer->GetGameObject()->GetTransform()->FixedRotation = { glm::radians(-90.0f),0,0};
-	enemyRenderer->GetGameObject()->GetTransform()->Scale = {20.0f, 20.0f, 20.0f};
+	enemyRenderer->GetGameObject()->GetTransform()->position = pos;
+	enemyRenderer->GetGameObject()->GetTransform()->fixedRotation = { glm::radians(-90.0f),0,0};
+	enemyRenderer->GetGameObject()->GetTransform()->scale = {20.0f, 20.0f, 20.0f};
 
 	// Textures
 	static auto diff = std::make_shared<Texture>(basePath + "textures/food_avocado_01_diff_2k.jpg");

@@ -24,7 +24,7 @@ void Player::Start()
 		cameraController->enableMoving = false;
 
 	auto lightGO = new GameObject();
-	lightGO->GetTransform()->Position = { 0.0f, 0.1f, 0.0f };
+	lightGO->GetTransform()->position = { 0.0f, 0.1f, 0.0f };
 	weaponFlashlight = lightGO->AddComponent(new Light());
 	weaponFlashlight->color = { 0.25f, 0.05f, 1.0f };
 	weaponFlashlight->type = LightType::Spot;
@@ -55,26 +55,26 @@ void Player::Update(float deltaTime)
 	if (cameraController != nullptr)
 	{
 		auto camTransform = cameraController->GetGameObject()->GetTransform();
-		camTransform->Position = t->Position + glm::vec3(0, height, 0);
+		camTransform->position = t->position + glm::vec3(0, height, 0);
 
-		t->Rotation = { 0, camTransform->Rotation.y, 0 };
+		t->rotation = { 0, camTransform->rotation.y, 0 };
 
 		if (weapon != nullptr)
 		{
 			auto weaponExtraRot = glm::vec3{ glm::radians(180.0), glm::radians(-270.0), -glm::radians(90.0) };
-			auto weaponOffset = glm::quat(camTransform->Rotation) * glm::vec3(0.015f, -0.0025f, -0.018f);
-			weapon->GetTransform()->FixedRotation = weaponExtraRot;
-			glm::vec3 newWeaponPos = camTransform->Position + weaponOffset;
-			glm::vec3 newWeaponRot = camTransform->Rotation;
+			auto weaponOffset = glm::quat(camTransform->rotation) * glm::vec3(0.015f, -0.0025f, -0.018f);
+			weapon->GetTransform()->fixedRotation = weaponExtraRot;
+			glm::vec3 newWeaponPos = camTransform->position + weaponOffset;
+			glm::vec3 newWeaponRot = camTransform->rotation;
 
 			// Weapon sway effect
-			weapon->GetTransform()->Position = glm::mix(weapon->GetTransform()->Position + posChange, newWeaponPos, fminf(deltaTime * 15.0f, 1.0f));
-			weapon->GetTransform()->Position.y = newWeaponPos.y;
-			weapon->GetTransform()->Rotation = glm::mix(weapon->GetTransform()->Rotation, newWeaponRot, deltaTime * 6.0f);
+			weapon->GetTransform()->position = glm::mix(weapon->GetTransform()->position + posChange, newWeaponPos, fminf(deltaTime * 15.0f, 1.0f));
+			weapon->GetTransform()->position.y = newWeaponPos.y;
+			weapon->GetTransform()->rotation = glm::mix(weapon->GetTransform()->rotation, newWeaponRot, deltaTime * 6.0f);
 
 			auto lightT = weaponFlashlight->GetGameObject()->GetTransform();
-			lightT->Position = weapon->GetTransform()->Position + weapon->GetTransform()->GetForwardVector() * 0.1f;
-			lightT->Rotation = weapon->GetTransform()->Rotation;
+			lightT->position = weapon->GetTransform()->position + weapon->GetTransform()->GetForwardVector() * 0.1f;
+			lightT->rotation = weapon->GetTransform()->rotation;
 		}
 	}
 
@@ -88,10 +88,10 @@ void Player::Update(float deltaTime)
 void Player::Fire()
 {
 	auto camT = cameraController->GetGameObject()->GetTransform();
-	auto rayOrigin = camT->Position;
+	auto rayOrigin = camT->position;
 	auto rayDirection = camT->GetForwardVector();
 
-	weapon->GetTransform()->Rotation += glm::vec3(glm::radians(15.0f), 0, 0);
+	weapon->GetTransform()->rotation += glm::vec3(glm::radians(15.0f), 0, 0);
 
 	HitInfo hitInfo;
 	if (collisionController->Raycast(rayOrigin, rayDirection, hitInfo, collider))

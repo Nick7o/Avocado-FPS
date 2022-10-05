@@ -12,8 +12,8 @@ std::shared_ptr<Camera> Light::GetCamera(int faceId)
 		internalCameraRef = std::make_shared<Camera>();
 
 	auto t = GetGameObject()->GetTransform();
-	internalCameraRef->position = t->Position;
-	internalCameraRef->rotation = t->Rotation;
+	internalCameraRef->position = t->position;
+	internalCameraRef->rotation = t->rotation;
 
 	switch (type)
 	{
@@ -49,7 +49,7 @@ void Light::Start()
 void Light::Update(float deltaTime)
 {
 	auto t = GetGameObject()->GetTransform();
-	auto rot = t->Rotation;
+	auto rot = t->rotation;
 	//t->Rotation = glm::vec3(rot.x + deltaTime, 0, 0);
 
 	//Renderer::DrawMesh(Shapes::CreateCube({0.1f,0.1f,0.5f}), nullptr, t->GetLocalToWorldMatrix(), CameraController::GetCurrent()->camera, false);

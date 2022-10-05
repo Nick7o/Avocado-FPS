@@ -210,8 +210,8 @@ void Renderer::ExecuteDrawCommand(DrawCommand& command)
 
 	// Light
 	std::sort(lights.begin(), lights.end(), [command](Light* a, Light* b) {
-		auto aPos = a->GetGameObject()->GetTransform()->Position;
-		auto bPos = b->GetGameObject()->GetTransform()->Position;
+		auto aPos = a->GetGameObject()->GetTransform()->position;
+		auto bPos = b->GetGameObject()->GetTransform()->position;
 		return glm::distance2(aPos, command.camera.position) < glm::distance2(bPos, command.camera.position);
 		});
 
@@ -284,7 +284,7 @@ void Renderer::SetLightData(Shader& shader, int lightNumber, Light& light)
 
 	if (light.type != LightType::Directional)
 	{
-		shader.SetVec3(basePath + "position", transform->Position);
+		shader.SetVec3(basePath + "position", transform->position);
 		shader.SetVec3(basePath + "attenuationCLQ", light.attenuation.ToVec3());
 		shader.SetFloat(basePath + "spotAngle", light.type == LightType::Spot ? cosf(light.spotAngle) : -1.0f);
 		shader.SetFloat(basePath + "outerSpotAngle", light.type == LightType::Spot ? cosf(light.outerSpotAngle) : -1.0f);

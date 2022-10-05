@@ -9,7 +9,7 @@ CameraController* CameraController::currentCameraController = nullptr;
 
 void CameraController::Start()
 {
-	GetGameObject()->GetTransform()->Rotation = glm::vec3(90, 0, 0);
+	GetGameObject()->GetTransform()->rotation = glm::vec3(90, 0, 0);
 	Input::MouseMoved += [this](glm::vec2 move) { OnMouseMoved(move); };
 }
 
@@ -17,8 +17,8 @@ void CameraController::Update(float deltaTime)
 {
 	currentCameraController = this;
 
-	camera.position = GetGameObject()->GetTransform()->Position;
-	camera.rotation = GetGameObject()->GetTransform()->Rotation;
+	camera.position = GetGameObject()->GetTransform()->position;
+	camera.rotation = GetGameObject()->GetTransform()->rotation;
 
 	camera.perspectiveProjectionData.aspectRatio = (float)Renderer::GetWindowWidth() / Renderer::GetWindowHeight();
 
@@ -29,8 +29,8 @@ void CameraController::Update(float deltaTime)
 glm::mat4 CameraController::GetViewMatrix()
 {
 	auto t = GetGameObject()->GetTransform();
-	camera.position = t->Position;
-	camera.rotation = t->Rotation;
+	camera.position = t->position;
+	camera.rotation = t->rotation;
 
 	return camera.GetViewMatrix();
 }
@@ -45,14 +45,14 @@ void CameraController::HandleMovement(float deltaTime)
 	const auto& transform = GetGameObject()->GetTransform();
 
 	if (Input::GetKeys()[GLFW_KEY_W])
-		transform->Position += transform->GetForwardVector() * moveSpeed * deltaTime;
+		transform->position += transform->GetForwardVector() * moveSpeed * deltaTime;
 	if (Input::GetKeys()[GLFW_KEY_S])
-		transform->Position -= transform->GetForwardVector() * moveSpeed * deltaTime;
+		transform->position -= transform->GetForwardVector() * moveSpeed * deltaTime;
 
 	if (Input::GetKeys()[GLFW_KEY_A])
-		transform->Position -= transform->GetRightVector() * moveSpeed * deltaTime;
+		transform->position -= transform->GetRightVector() * moveSpeed * deltaTime;
 	if (Input::GetKeys()[GLFW_KEY_D])
-		transform->Position += transform->GetRightVector() * moveSpeed * deltaTime;
+		transform->position += transform->GetRightVector() * moveSpeed * deltaTime;
 }
 
 void CameraController::HandleRotation(float xMove, float yMove)
@@ -62,8 +62,8 @@ void CameraController::HandleRotation(float xMove, float yMove)
 
 	auto transform = GetGameObject()->GetTransform();
 
-	transform->Rotation.x += yMove * rotateSpeed;
-	transform->Rotation.y += -xMove * rotateSpeed;
+	transform->rotation.x += yMove * rotateSpeed;
+	transform->rotation.y += -xMove * rotateSpeed;
 
-	transform->Rotation.x = fminf(fmaxf(transform->Rotation.x, glm::radians(-80.0f)), glm::radians(80.0f));
+	transform->rotation.x = fminf(fmaxf(transform->rotation.x, glm::radians(-80.0f)), glm::radians(80.0f));
 }
