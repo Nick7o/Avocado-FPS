@@ -51,7 +51,11 @@ public:
 	{
 		windowWidth = width;
 		windowHeight = height;
+		glViewport(0, 0, width, height);
 	}
+
+	static unsigned int GetWindowWidth() { return windowWidth; }
+	static unsigned int GetWindowHeight() { return windowHeight; }
 
 private:
 	static bool initialized;

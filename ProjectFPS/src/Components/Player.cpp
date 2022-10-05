@@ -67,8 +67,10 @@ void Player::Update(float deltaTime)
 			glm::vec3 newWeaponPos = camTransform->Position + weaponOffset;
 			glm::vec3 newWeaponRot = camTransform->Rotation;
 
-			weapon->GetTransform()->Position = glm::mix(weapon->GetTransform()->Position + posChange, newWeaponPos, deltaTime * 15.0f);
-			weapon->GetTransform()->Rotation = glm::mix(weapon->GetTransform()->Rotation, newWeaponRot, deltaTime * 8.0f);
+			// Weapon sway effect
+			weapon->GetTransform()->Position = glm::mix(weapon->GetTransform()->Position + posChange, newWeaponPos, fminf(deltaTime * 15.0f, 1.0f));
+			weapon->GetTransform()->Position.y = newWeaponPos.y;
+			weapon->GetTransform()->Rotation = glm::mix(weapon->GetTransform()->Rotation, newWeaponRot, deltaTime * 6.0f);
 
 			auto lightT = weaponFlashlight->GetGameObject()->GetTransform();
 			lightT->Position = weapon->GetTransform()->Position + weapon->GetTransform()->GetForwardVector() * 0.1f;

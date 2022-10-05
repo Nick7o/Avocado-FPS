@@ -62,22 +62,17 @@ void Mesh::SendData()
     glBindVertexArray(VAO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
 
-    //Debug::Log("Mesh::Buffer Size", std::to_string(GetBufferSize()).c_str());
-    //Debug::Log("Mesh::Vertex Size", std::to_string(vertices.size() * sizeof(vertices[0])).c_str());
     glBufferData(GL_ARRAY_BUFFER, GetBufferSize(), 0, GL_STATIC_DRAW);
 
+    // Buffer data
     if (!vertices.empty())
         glBufferSubData(GL_ARRAY_BUFFER, GetVertexOffset(), vertices.size() * sizeof(vertices[0]), &vertices[0]);
-
     if (!colors.empty())
         glBufferSubData(GL_ARRAY_BUFFER, GetColorsOffset(), vertices.size() * sizeof(colors[0]), &colors[0]);
-
     if (!normals.empty())
         glBufferSubData(GL_ARRAY_BUFFER, GetNormalsOffset(), vertices.size() * sizeof(normals[0]), &normals[0]);
-
     if (!tangents.empty())
         glBufferSubData(GL_ARRAY_BUFFER, GetTangentsOffset(), vertices.size() * sizeof(tangents[0]), &tangents[0]);
-
     if (!uv0.empty())
         glBufferSubData(GL_ARRAY_BUFFER, GetUV0Offset(), vertices.size() * sizeof(uv0[0]), &uv0[0]);
 
@@ -135,12 +130,12 @@ int Mesh::GetVertexOffset()
 
 int Mesh::GetColorsOffset()
 {
-    return GetSize(vertices);//GetVertexOffset() + sizeof(vertices[0]);
+    return GetSize(vertices);
 }
 
 int Mesh::GetNormalsOffset()
 {
-    return GetColorsOffset() + GetSize(colors);//GetColorsOffset() + sizeof(colors[0]);
+    return GetColorsOffset() + GetSize(colors);
 }
 
 int Mesh::GetTangentsOffset()
@@ -150,5 +145,5 @@ int Mesh::GetTangentsOffset()
 
 int Mesh::GetUV0Offset()
 {
-    return GetTangentsOffset() + GetSize(tangents);// + sizeof(normals[0]);
+    return GetTangentsOffset() + GetSize(tangents);
 }

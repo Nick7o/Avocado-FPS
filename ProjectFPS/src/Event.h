@@ -1,3 +1,5 @@
+// Based on https://www.codeproject.com/Articles/1256352/CppEvent-How-to-Implement-Events-using-Standard-Cp
+
 #pragma once
 
 template<typename... Args>

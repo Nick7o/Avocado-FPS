@@ -18,6 +18,7 @@ BoxCollider::BoxCollider(glm::vec3 pos, glm::vec3 size, glm::vec3 rot)
 
 bool BoxCollider::HasPointInside(glm::vec3 point)
 {
+	Debug::LogError("BoxCollider", "HasPointInside is not implemented.");
 	return false;
 }
 

@@ -8,6 +8,7 @@
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include "glm/gtx/string_cast.hpp"
 
 #include "OpenGLWindow.h"
 #include "Debug.h"
@@ -57,23 +58,28 @@ void LoadShaders()
 	standardShader->Load(baseShaderPath + ".vert", baseShaderPath + ".frag");
 }
 
+void FramebufferResizeCallback(GLFWwindow* window, int width, int height)
+{
+	Renderer::SetWindowResolutionInfo(width, height);
+}
+
 void Initialize()
 {
 	std::srand(std::time(nullptr));
 
+	Renderer::SetWindowResolutionInfo(mainWindow->GetWidth(), mainWindow->GetHeight());
+
 	glfwSetInputMode(mainWindow->GetWindowPointer(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	glfwSetFramebufferSizeCallback(mainWindow->GetWindowPointer(), FramebufferResizeCallback);
 
 	LoadShaders();
 	Renderer::Init();
 }
 
-#include "glm/gtx/string_cast.hpp"
-
 int main()
 {
-	mainWindow = new OpenGLWindow(1600, 900);
+	mainWindow = new OpenGLWindow(2560, 1440);
 	mainWindow->Initialize();
-	Renderer::SetWindowResolutionInfo(1600, 900);
 
 	Initialize();
 

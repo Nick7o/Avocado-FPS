@@ -12,7 +12,6 @@ GameObject::GameObject()
 	transform = AddComponent(t);
 
 	SceneManager::GetInstance().GetCurrentScene()->AddGameObject(this);
-	//SceneManager::GetInstance().GetCurrentScene()->AddGameObject(this);
 }
 
 GameObject::GameObject(const std::string name) : GameObject()
@@ -25,10 +24,10 @@ GameObject::~GameObject()
 	// delete all components...
 }
 
-//template<class T>
 Component* GameObject::AddComponent(Component* component)
 {
-	//static_assert(std::is_base_of<Component, T>::value, "T must inherit from Component");
+	if (component == nullptr)
+		return nullptr;
 
 	auto componentPointer = std::unique_ptr<Component>(component);
 	componentPointer->SetGameObject(*this);

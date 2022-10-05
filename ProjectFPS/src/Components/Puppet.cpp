@@ -17,15 +17,15 @@ void Puppet::Start()
 
 void Puppet::HandlePhysics(float deltaTime)
 {
-	auto t = GetGameObject()->GetTransform();
-	auto pos = t->Position;
+	auto transform = GetGameObject()->GetTransform();
+	auto pos = transform->Position;
 	posChange = velocity * deltaTime;
 	auto newPos = pos + posChange;
 	auto velDir = glm::normalize(velocity);
 
 	// Ground detection
-	glm::vec3 roGround = pos + glm::vec3(0, 0.1f, 0.0f);
-	glm::vec3 rdGround = glm::normalize(glm::vec3(0.0f, -1.0f, 0.0f));
+	glm::vec3 roGround = pos + glm::vec3(0, 0.1f, 0.0f); // Ray Origin - ro
+	glm::vec3 rdGround = glm::normalize(glm::vec3(0.0f, -1.0f, 0.0f)); // Ray Direction - rd
 
 	HitInfo groundHitInfo;
 	if (collisionController->Raycast(roGround, rdGround, groundHitInfo, collider))
@@ -44,8 +44,8 @@ void Puppet::HandlePhysics(float deltaTime)
 	}
 
 	// Wall detection
-	glm::vec3 roWall = pos + glm::vec3(0, 1.0f, 0.0f);
-	glm::vec3 rdWall = glm::normalize(glm::vec3(velDir.x, 0.0f, velDir.z));
+	glm::vec3 roWall = pos + glm::vec3(0, 1.0f, 0.0f); // Ray Origin - ro
+	glm::vec3 rdWall = glm::normalize(glm::vec3(velDir.x, 0.0f, velDir.z)); // Ray Direction - rd
 
 	for (int i = 0; i < collisionRays; i++)
 	{
@@ -90,7 +90,7 @@ void Puppet::HandlePhysics(float deltaTime)
 	if (posChange.y > 0.01f)
 		isGrounded = false;
 
-	t->Position = newPos;
+	transform->Position = newPos;
 }
 
 void Puppet::TakeDamage(float damage)

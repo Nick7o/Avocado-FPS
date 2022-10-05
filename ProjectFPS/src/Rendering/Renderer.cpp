@@ -30,6 +30,7 @@ void Renderer::Init()
 	if (initialized)
 		return;
 
+	glEnable(GL_MULTISAMPLE);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
@@ -148,13 +149,7 @@ void Renderer::BasePass()
 
 void Renderer::PostFXPass()
 {
-	/*glDepthFunc(GL_ALWAYS);
-	static auto uiMat = std::make_shared<Material>(Shader::Find("UI"));
-	uiMat->SetVec4("color", glm::vec4(1.0f));
-	static auto uiCam = Camera();
-	uiCam.SetProjection(Camera::OrthographicProjectionData());
-	auto drawCmd = DrawCommand{ skyboxMesh, uiMat, glm::scale(glm::translate(glm::mat4(1.0f), glm::vec3(0.5f)), glm::vec3(0.1f)), uiCam, false };
-	ExecuteDrawCommand(drawCmd);*/
+	
 }
 
 void Renderer::DrawMeshWireframe(const std::shared_ptr<Mesh> mesh, std::shared_ptr<Material> material, const glm::mat4& localToWorld, Camera& camera)
@@ -202,18 +197,16 @@ void Renderer::ExecuteDrawCommand(DrawCommand& command)
 
 	auto shader = material->shader;
 
-	// Properties that can be overriden by material
+	// Properties provided by the renderer
 	shader->SetVec3("uv0Tilling", glm::vec3(1.0f)); // default tilling
 
-	material->Bind();
-	int nextFreeTextureId = material->GetTextureCount();
-
-	// Higher importance than material properties
 	shader->SetMatrix4("model", command.model);
 	shader->SetMatrix4("view", command.camera.GetViewMatrix());
 	shader->SetMatrix4("projection", command.camera.GetProjectionMatrix());
-
 	shader->SetVec3("viewPos", command.camera.position);
+
+	material->Bind();
+	int nextFreeTextureId = material->GetTextureCount();
 
 	// Light
 	std::sort(lights.begin(), lights.end(), [command](Light* a, Light* b) {
@@ -232,6 +225,7 @@ void Renderer::ExecuteDrawCommand(DrawCommand& command)
 
 		if (command.receiveShadows)
 		{
+			// Binding a shadow map
 			if (shadowMaps.count(light) > 0 && light->type == LightType::Directional)
 			{
 				glActiveTexture(GL_TEXTURE0 + nextFreeTextureId);
