@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{a60f3ab7-e005-45c3-a6ea-e5152e7dfa85}</ProjectGuid>
+    <RootNamespace>ProjectFPS</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)/ProjectFPS/src;$(SolutionDir)\libraries\cereal;$(SolutionDir)\libraries\Shadinclude;$(SolutionDir)\libraries\stb;$(SolutionDir)\libraries\glm;$(SolutionDir)\libraries\GLEW\include;$(SolutionDir)\libraries\GLFW\include;$(SolutionDir)\libraries\json;$(SolutionDir)\libraries\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)/libraries/GLEW/lib/Release/x64;$(SolutionDir)/libraries/GLFW/lib-vc2019;$(SolutionDir)/libraries/assimp/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32.lib;assimp-vc142-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)/ProjectFPS/src;$(SolutionDir)\libraries\cereal;$(SolutionDir)\libraries\Shadinclude;$(SolutionDir)\libraries\stb;$(SolutionDir)\libraries\glm;$(SolutionDir)\libraries\GLEW\include;$(SolutionDir)\libraries\GLFW\include;$(SolutionDir)\libraries\json;$(SolutionDir)\libraries\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)/libraries/GLEW/lib/Release/x64;$(SolutionDir)/libraries/GLFW/lib-vc2019;$(SolutionDir)/libraries/assimp/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32.lib;assimp-vc142-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)/ProjectFPS/src;$(SolutionDir)\libraries\cereal;$(SolutionDir)\libraries\Shadinclude;$(SolutionDir)\libraries\stb;$(SolutionDir)\libraries\glm;$(SolutionDir)\libraries\GLEW\include;$(SolutionDir)\libraries\GLFW\include;$(SolutionDir)\libraries\json;$(SolutionDir)\libraries\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)/libraries/GLEW/lib/Release/x64;$(SolutionDir)/libraries/GLFW/lib-vc2019;$(SolutionDir)/libraries/assimp/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32.lib;assimp-vc142-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)/ProjectFPS/src;$(SolutionDir)\libraries\cereal;$(SolutionDir)\libraries\Shadinclude;$(SolutionDir)\libraries\stb;$(SolutionDir)\libraries\glm;$(SolutionDir)\libraries\GLEW\include;$(SolutionDir)\libraries\GLFW\include;$(SolutionDir)\libraries\json;$(SolutionDir)\libraries\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)/libraries/GLEW/lib/Release/x64;$(SolutionDir)/libraries/GLFW/lib-vc2019;$(SolutionDir)/libraries/assimp/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32.lib;assimp-vc142-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Components\Puppet.cpp" />
+    <ClCompile Include="src\Components\Enemy.cpp" />
+    <ClCompile Include="src\Components\Player.cpp" />
+    <ClCompile Include="src\Components\Colliders.cpp" />
+    <ClCompile Include="src\Components\CollisionController.cpp" />
+    <ClCompile Include="src\Rendering\Framebuffer.cpp" />
+    <ClCompile Include="src\Components\Light.cpp" />
+    <ClCompile Include="src\Levels\LevelDescription.cpp" />
+    <ClCompile Include="src\Rendering\Renderer.cpp" />
+    <ClCompile Include="src\Camera.cpp" />
+    <ClCompile Include="src\Components\MeshRenderer.cpp" />
+    <ClCompile Include="src\pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="src\Event.cpp" />
+    <ClCompile Include="src\Components\CameraController.cpp" />
+    <ClCompile Include="src\MeshImporter.cpp" />
+    <ClCompile Include="src\Rendering\TextureFormat.cpp" />
+    <ClCompile Include="src\SceneManager.cpp" />
+    <ClCompile Include="src\GameObject.cpp" />
+    <ClCompile Include="src\Scene.cpp" />
+    <ClCompile Include="src\Component.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\Object.cpp" />
+    <ClCompile Include="src\Rendering\Material.cpp" />
+    <ClCompile Include="src\Mesh.cpp" />
+    <ClCompile Include="src\Rendering\Shader.cpp" />
+    <ClCompile Include="src\Debug.cpp" />
+    <ClCompile Include="src\Input.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\OpenGLWindow.cpp" />
+    <ClCompile Include="src\Rendering\Texture.cpp" />
+    <ClCompile Include="src\Components\Transform.cpp" />
+    <ClCompile Include="src\Shapes.cpp" />
+    <ClCompile Include="src\Rendering\TextureCube.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Components\Puppet.h" />
+    <ClInclude Include="src\Components\Enemy.h" />
+    <ClInclude Include="src\Components\Player.h" />
+    <ClInclude Include="src\Components\Colliders.h" />
+    <ClInclude Include="src\Components\CollisionController.h" />
+    <ClInclude Include="src\Rendering\Framebuffer.h" />
+    <ClInclude Include="src\Components\Light.h" />
+    <ClInclude Include="src\Levels\LevelDescription.h" />
+    <ClInclude Include="src\Rendering\Renderer.h" />
+    <ClInclude Include="src\Camera.h" />
+    <ClInclude Include="src\Components\MeshRenderer.h" />
+    <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\Event.h" />
+    <ClInclude Include="src\Components\CameraController.h" />
+    <ClInclude Include="src\MeshImporter.h" />
+    <ClInclude Include="src\SceneManager.h" />
+    <ClInclude Include="src\GameObject.h" />
+    <ClInclude Include="src\Scene.h" />
+    <ClInclude Include="src\Component.h" />
+    <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\Object.h" />
+    <ClInclude Include="src\Rendering\Material.h" />
+    <ClInclude Include="src\Mesh.h" />
+    <ClInclude Include="src\Rendering\Shader.h" />
+    <ClInclude Include="src\OpenGLWindow.h" />
+    <ClInclude Include="src\Debug.h" />
+    <ClInclude Include="src\Input.h" />
+    <ClInclude Include="src\Rendering\Texture.h" />
+    <ClInclude Include="src\Rendering\TextureFormat.h" />
+    <ClInclude Include="src\Components\Transform.h" />
+    <ClInclude Include="src\Shapes.h" />
+    <ClInclude Include="src\Rendering\TextureCube.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assimp-vc142-mt.dll" />
+    <None Include="glew32.dll" />
+    <None Include="resources\Models\barrel_03_1k\barrel_03_1k.fbx" />
+    <None Include="resources\Models\food_avocado_01_2k\food_avocado_01_2k.fbx" />
+    <None Include="resources\Models\gun\Gun.fbx" />
+    <None Include="resources\Models\Level0\level-2.fbx" />
+    <None Include="resources\Models\Level0\level-3.fbx" />
+    <None Include="resources\Models\Level0\level.fbx" />
+    <None Include="resources\Shaders\include\engine.glsl" />
+    <None Include="resources\Shaders\Missing.frag" />
+    <None Include="resources\Shaders\Missing.vert" />
+    <None Include="resources\Shaders\shader.frag" />
+    <None Include="resources\Shaders\shader.vert" />
+    <None Include="resources\Shaders\Shadow.frag" />
+    <None Include="resources\Shaders\Shadow.vert" />
+    <None Include="resources\Shaders\Skybox.frag" />
+    <None Include="resources\Shaders\Skybox.vert" />
+    <None Include="resources\Shaders\Standard.frag" />
+    <None Include="resources\Shaders\Standard.vert" />
+    <None Include="resources\Shaders\UI.frag" />
+    <None Include="resources\Shaders\UI.vert" />
+    <None Include="resources\Textures\Skyboxes\sunflowers_polyhaven\nx.hdr" />
+    <None Include="resources\Textures\Skyboxes\sunflowers_polyhaven\ny.hdr" />
+    <None Include="resources\Textures\Skyboxes\sunflowers_polyhaven\nz.hdr" />
+    <None Include="resources\Textures\Skyboxes\sunflowers_polyhaven\px.hdr" />
+    <None Include="resources\Textures\Skyboxes\sunflowers_polyhaven\py.hdr" />
+    <None Include="resources\Textures\Skyboxes\sunflowers_polyhaven\pz.hdr" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\Models\barrel_03_1k\textures\barrel_03_arm_1k.jpg" />
+    <Image Include="resources\Models\barrel_03_1k\textures\barrel_03_diff_1k.jpg" />
+    <Image Include="resources\Models\barrel_03_1k\textures\barrel_03_nor_gl_1k.jpg" />
+    <Image Include="resources\Models\food_avocado_01_2k\textures\food_avocado_01_arm_2k.jpg" />
+    <Image Include="resources\Models\food_avocado_01_2k\textures\food_avocado_01_diff_2k.jpg" />
+    <Image Include="resources\Models\food_avocado_01_2k\textures\food_avocado_01_nor_gl_2k.jpg" />
+    <Image Include="resources\Models\gun\Gun_arm.png" />
+    <Image Include="resources\Models\gun\Gun_col.png" />
+    <Image Include="resources\Models\gun\Gun_nrm.png" />
+    <Image Include="resources\Models\Level0\filar\pillar_arm.png" />
+    <Image Include="resources\Models\Level0\filar\pillar_col.png" />
+    <Image Include="resources\Models\Level0\filar\pillar_nrm.png" />
+    <Image Include="resources\Models\Level0\okno\window_arm.png" />
+    <Image Include="resources\Models\Level0\okno\window_col.png" />
+    <Image Include="resources\Models\Level0\okno\window_nrm.png" />
+    <Image Include="resources\Models\Level0\podloga-sufit\3_arm.png" />
+    <Image Include="resources\Models\Level0\podloga-sufit\3_col.png" />
+    <Image Include="resources\Models\Level0\podloga-sufit\3_nrm.png" />
+    <Image Include="resources\Models\Level0\sciana-inna\Components_arm.png" />
+    <Image Include="resources\Models\Level0\sciana-inna\Components_col.png" />
+    <Image Include="resources\Models\Level0\sciana-inna\Components_nrm.png" />
+    <Image Include="resources\Models\Level0\sciana-normal\3_arm.png" />
+    <Image Include="resources\Models\Level0\sciana-normal\3_col.png" />
+    <Image Include="resources\Models\Level0\sciana-normal\3_nrm.png" />
+    <Image Include="resources\Models\Level0\skrzynia\skrzynia_arm.skrzynia.png" />
+    <Image Include="resources\Models\Level0\skrzynia\skrzynia_col.skrzynia.png" />
+    <Image Include="resources\Models\Level0\skrzynia\skrzynia_nrm.skrzynia.png" />
+    <Image Include="resources\Models\Misc\brick.png" />
+    <Image Include="resources\Textures\floor_pavement_1k\floor_pavement_ao_1k.jpg" />
+    <Image Include="resources\Textures\floor_pavement_1k\floor_pavement_arm_1k.jpg" />
+    <Image Include="resources\Textures\floor_pavement_1k\floor_pavement_diff_1k.jpg" />
+    <Image Include="resources\Textures\floor_pavement_1k\floor_pavement_disp_1k.png" />
+    <Image Include="resources\Textures\floor_pavement_1k\floor_pavement_nor_gl_1k.png" />
+    <Image Include="resources\Textures\floor_pavement_1k\floor_pavement_rough_1k.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\Models\Misc\teapot.obj">
+      <FileType>Document</FileType>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\Models\Misc\BasicPistol.obj">
+      <FileType>Document</FileType>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\Models\Level0\Lvl0_test.obj">
+      <FileType>Document</FileType>
+    </Media>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\OpenGLWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rendering\Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rendering\Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rendering\Material.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Object.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Components\Transform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SceneManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MeshImporter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Components\CameraController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Components\MeshRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rendering\Renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Levels\LevelDescription.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Components\Light.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shapes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rendering\TextureCube.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rendering\Framebuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Rendering\TextureFormat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Components\CollisionController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Components\Colliders.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Components\Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Components\Enemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Components\Puppet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\OpenGLWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rendering\Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rendering\Texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rendering\TextureFormat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rendering\Material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Object.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Component.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Components\Transform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SceneManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MeshImporter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Components\CameraController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Components\MeshRenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rendering\Renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Levels\LevelDescription.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Components\Light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Shapes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rendering\TextureCube.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Rendering\Framebuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Components\CollisionController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Components\Colliders.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Components\Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Components\Enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Components\Puppet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\Shaders\shader.frag" />
+    <None Include="resources\Shaders\shader.vert" />
+    <None Include="glew32.dll" />
+    <None Include="resources\Shaders\include\engine.glsl" />
+    <None Include="resources\Shaders\Standard.frag" />
+    <None Include="resources\Shaders\Standard.vert" />
+    <None Include="assimp-vc142-mt.dll" />
+    <None Include="resources\Shaders\Missing.frag" />
+    <None Include="resources\Shaders\Missing.vert" />
+    <None Include="resources\Shaders\Shadow.frag" />
+    <None Include="resources\Shaders\Shadow.vert" />
+    <None Include="resources\Models\barrel_03_1k\barrel_03_1k.fbx" />
+    <None Include="resources\Textures\Skyboxes\sunflowers_polyhaven\nx.hdr" />
+    <None Include="resources\Textures\Skyboxes\sunflowers_polyhaven\ny.hdr" />
+    <None Include="resources\Textures\Skyboxes\sunflowers_polyhaven\nz.hdr" />
+    <None Include="resources\Textures\Skyboxes\sunflowers_polyhaven\px.hdr" />
+    <None Include="resources\Textures\Skyboxes\sunflowers_polyhaven\py.hdr" />
+    <None Include="resources\Textures\Skyboxes\sunflowers_polyhaven\pz.hdr" />
+    <None Include="resources\Shaders\Skybox.frag" />
+    <None Include="resources\Shaders\Skybox.vert" />
+    <None Include="resources\Models\food_avocado_01_2k\food_avocado_01_2k.fbx" />
+    <None Include="resources\Models\Level0\level-2.fbx" />
+    <None Include="resources\Models\Level0\level.fbx" />
+    <None Include="resources\Shaders\UI.frag" />
+    <None Include="resources\Shaders\UI.vert" />
+    <None Include="resources\Models\Level0\level-3.fbx" />
+    <None Include="resources\Models\gun\Gun.fbx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\Models\Misc\brick.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Textures\floor_pavement_1k\floor_pavement_ao_1k.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Textures\floor_pavement_1k\floor_pavement_arm_1k.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Textures\floor_pavement_1k\floor_pavement_diff_1k.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Textures\floor_pavement_1k\floor_pavement_disp_1k.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Textures\floor_pavement_1k\floor_pavement_nor_gl_1k.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Textures\floor_pavement_1k\floor_pavement_rough_1k.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\barrel_03_1k\textures\barrel_03_arm_1k.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\barrel_03_1k\textures\barrel_03_diff_1k.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\barrel_03_1k\textures\barrel_03_nor_gl_1k.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\food_avocado_01_2k\textures\food_avocado_01_arm_2k.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\food_avocado_01_2k\textures\food_avocado_01_diff_2k.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\food_avocado_01_2k\textures\food_avocado_01_nor_gl_2k.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\Level0\filar\pillar_arm.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\Level0\filar\pillar_col.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\Level0\filar\pillar_nrm.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\Level0\okno\window_arm.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\Level0\okno\window_col.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\Level0\okno\window_nrm.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\Level0\podloga-sufit\3_arm.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\Level0\podloga-sufit\3_col.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\Level0\podloga-sufit\3_nrm.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\Level0\sciana-inna\Components_arm.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\Level0\sciana-inna\Components_col.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\Level0\sciana-inna\Components_nrm.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\Level0\sciana-normal\3_arm.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\Level0\sciana-normal\3_col.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\Level0\sciana-normal\3_nrm.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\Level0\skrzynia\skrzynia_arm.skrzynia.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\Level0\skrzynia\skrzynia_col.skrzynia.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\Level0\skrzynia\skrzynia_nrm.skrzynia.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\gun\Gun_arm.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\gun\Gun_col.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\Models\gun\Gun_nrm.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\Models\Misc\teapot.obj" />
+    <Media Include="resources\Models\Misc\BasicPistol.obj" />
+    <Media Include="resources\Models\Level0\Lvl0_test.obj" />
+  </ItemGroup>
+</Project>
